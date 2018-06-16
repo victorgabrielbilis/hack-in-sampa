@@ -16,6 +16,7 @@
           <script src=\"https://code.highcharts.com/modules/data.js\"></script>
           <script src=\"https://code.highcharts.com/modules/exporting.js\"></script>
           <script src=\"https://code.highcharts.com/modules/export-data.js\"></script>
+          <script src=\"https://code.jquery.com/jquery-2.1.1.min.js\"></script>
 
 
           <style type=\"text/css\">
@@ -32,6 +33,14 @@
           </style>
 
           <script>
+
+          document.addEventListener('DOMContentLoaded', function() {
+             var elems = document.querySelectorAll('.collapsible');
+           var instances = M.Collapsible.init(elems, {
+             accordion: false
+           });
+           });
+
           $(document).ready(function(){
               $('.sidenav').sidenav();
           });

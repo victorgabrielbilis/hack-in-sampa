@@ -3,9 +3,9 @@
 
     function scripts($caminho)
     {
-        echo "<script src=\"https://code.jquery.com/jquery-2.1.1.min.js\"></script>
-          <script src=\"js/materialize.js\"></script>
-          <script src=\"js/init.js\"></script>";
+        echo "
+          <script src=\"".$caminho."js/materialize.js\"></script>
+          <script src=\"".$caminho."js/init.js\"></script>";
 
     }
 

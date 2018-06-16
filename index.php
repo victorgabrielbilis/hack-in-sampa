@@ -9,7 +9,7 @@
 <html lang="en">
   <?php head("");?>
 <body>
-  <?php menu("#");?>
+  <?php menu("");?>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
