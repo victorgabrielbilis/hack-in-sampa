@@ -15,7 +15,7 @@
       <br><br>
       <h1 class="header center black-text">Câmara gasto mensal</h1>
       <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light">Amostra do gasto mensal da câmara de São Paulo</h5>
       </div>
 
       <br><br>
@@ -24,41 +24,124 @@
   </div>
 
 
-  <div class="container">
+  <div id="container">
     <div class="section">
+      <script>
+                  Highcharts.chart('container', {
+                    chart: {
+                      type: 'line'
+                    },
+                    title: {
+                      text: 'Monthly Average Temperature'
+                    },
+                    subtitle: {
+                      text: 'Source: WorldClimate.com'
+                    },
+                    xAxis: {
+                      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    },
+                    yAxis: {
+                      title: {
+                        text: 'Temperature (°C)'
+                      }
+                    },
+                    plotOptions: {
+                      line: {
+                        dataLabels: {
+                          enabled: true
+                        },
+                        enableMouseTracking: false
+                      }
+                    },
+                    series: [{
+                      name: 'Tokyo',
+                      data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+                    }, {
+                      name: 'London',
+                      data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+                    }]
+                  });
 
-      <!--   Icon Section   -->
-      <!--<div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
-
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
-      </div>-->
+                        </script>
 
     </div>
     <br><br>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <br><br>
+    <h1 class="header center black-text">Empresas</h1>
+      <h5 class="header center light">Top 10</h5>
+    </div>
+      <div id="container2">
+                            <table id="datatable">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Jane</th>
+                          <th>John</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>Apples</th>
+                          <td>3</td>
+                          <td>4</td>
+                        </tr>
+                        <tr>
+                          <th>Pears</th>
+                          <td>2</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <th>Plums</th>
+                          <td>5</td>
+                          <td>11</td>
+                        </tr>
+                        <tr>
+                          <th>Bananas</th>
+                          <td>1</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <th>Oranges</th>
+                          <td>2</td>
+                          <td>4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+        <div class="section">
+          <script>
+
+                  Highcharts.chart('container2', {
+                    data: {
+                      table: 'datatable'
+                    },
+                    chart: {
+                      type: 'column'
+                    },
+                    title: {
+                      text: 'Data extracted from a HTML table in the page'
+                    },
+                    yAxis: {
+                      allowDecimals: false,
+                      title: {
+                        text: 'Units'
+                      }
+                    },
+                    tooltip: {
+                      formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                          this.point.y + ' ' + this.point.name.toLowerCase();
+                      }
+                    }
+                  });
+
+                  </script>
+        </div>
+    <br><br>
+
   </div>
   <?php footer();?>
   <?php scripts("");?>
