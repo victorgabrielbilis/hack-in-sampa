@@ -9,7 +9,7 @@
     $database = connect_DB();
 
 session_start();
- 
+
 
 $itens=null;
 $botao="validar";
@@ -21,6 +21,12 @@ $botao="validar";
   <?php head("");?>
 <body>
   <?php menu("");?>
+  <div class="row">
+    <img width="100%" src="util/img/saopaulo3.jpg">
+    <div class="row center">
+    <img style="margin-top:-450" class="responsive-img" src="util/img/logo_png.png">
+  </div>
+  </div>
   <div class="section no-pad-bot" id="index-banner">
     <form mrthod="post">
     <div class="container">
@@ -59,19 +65,19 @@ $botao="validar";
     <div class="input-field col s6">
     <select name="itens">
     <option value="0"> Selecione um item: </option>
-    <?php 
-        
+    <?php
+
         $sql="select distinct(despesa) AS item from debitovereador;";
-        
+
         $select=mysqli_query($database,$sql);
-        
+
         while($rs=mysqli_fetch_array($select))
         {
-       
-        echo "<option value=".$rs['item'].">".$rs['item']."</option>"; 
 
-        
-        
+        echo "<option value=".$rs['item'].">".$rs['item']."</option>";
+
+
+
         }
     ?>
     </select>
