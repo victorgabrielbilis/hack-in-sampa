@@ -1,8 +1,19 @@
 <?php
+
   require_once("util/head.php");
   require_once("util/footer.php");
   require_once("util/scripts.php");
   require_once("util/menu.php");
+
+    require_once("functions.php");
+    $database = connect_DB();
+
+session_start();
+ 
+
+$itens=null;
+$botao="validar";
+
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +22,7 @@
 <body>
   <?php menu("");?>
   <div class="section no-pad-bot" id="index-banner">
+    <form mrthod="post">
     <div class="container">
       <br><br>
 
@@ -45,11 +57,23 @@
     <label>Casa</label>
     </div>
     <div class="input-field col s6">
-    <select>
-    <option value="" disabled selected></option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
+    <select name="itens">
+    <option value="0"> Selecione um item: </option>
+    <?php 
+        
+        $sql="select distinct(despesa) AS item from debitovereador;";
+        
+        $select=mysqli_query($database,$sql);
+        
+        while($rs=mysqli_fetch_array($select))
+        {
+       
+        echo "<option value=".$rs['item'].">".$rs['item']."</option>"; 
+
+        
+        
+        }
+    ?>
     </select>
     <label>Item</label>
     </div>
@@ -69,10 +93,11 @@
           <label for="last_name">Valor R$</label>
         </div>
   </div>
-  <a class="waves-effect waves-light btn">Validar</a>
+    <a class="waves-effect waves-light btn">Validar</a>
       <br><br>
 
     </div>
+    </form>
   </div>
 
   <div class="row">
