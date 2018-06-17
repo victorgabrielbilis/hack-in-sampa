@@ -4,7 +4,7 @@
     function menu($caminho)
     {
         echo "<nav>
-        <nav class=\"light-blue lighten-1\" role=\"navigation\">
+        <nav class=\"indigo darken-4\" role=\"navigation\">
           <ul class=\"left\">
           <li href=\"#\" data-target=\"slide-out\" class=\"sidenav-trigger\"><i class=\"material-icons\">menu</i></li>
           </ul>
