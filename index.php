@@ -41,18 +41,17 @@ $botao="validar";
       <div class="input-field col s6">
       <select>
       <option value="" disabled selected></option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
+      <option value="1">São Paulo</option>
+      <option value="2">Paraná</option>
+      <option value="3">Minas Gerais</option>
       </select>
       <label>Estado</label>
       </div>
       <div class="input-field col s6">
       <select>
       <option value="" disabled selected></option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
+      <option value="1">Guarulhos</option>
+      <option value="2">Campinas</option>
       </select>
       <label>Município</label>
       </div>
@@ -61,9 +60,8 @@ $botao="validar";
     <div class="input-field col s6">
     <select>
     <option value="" disabled selected></option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
+    <option value="1">Municipal</option>
+    <option value="2">Parlamentar</option>
     </select>
     <label>Casa</label>
     </div>
@@ -270,7 +268,7 @@ var $newOpt = $("<option>").attr("value",1).text("fdsafdsa")
                       }
                     },
                     series: [{
-                      name: 'Serie 1'
+                      name: 'Gasto anual'
                       <?php
                           /*
                           $site = file_get_contents("http://localhost/hack-in-sampa/api/v1/despesas/getAllCostsMonths.php");

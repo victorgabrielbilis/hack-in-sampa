@@ -12,12 +12,10 @@
 
             <ul class=\"right hide-on-med-and-down\">
 
-            <li><a href=\"#\">API</a></li>
-            <li><a href=\"pages/search.php\">Pesquisar</a></li>
+            <li><a href=\"pages/search.php\">Créditos e débitos</a></li>
             </ul>
 
             <ul id=\"nav-mobile\" class=\"sidenav\">
-              <li><a href=\"#\">API</a></li>
               <li><a href=\"pages/search.php\">Pesquisar</a></li>
             </ul>
 
