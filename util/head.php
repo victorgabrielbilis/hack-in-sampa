@@ -30,12 +30,19 @@
             height: 400px;
             margin: 0 auto
           }
+          #container3 {
+          	min-width: 310px;
+            height: 300px;
+            max-width: 600px;
+            margin: 0 auto
+          }
           </style>
 
           <script>
 
           $(document).ready(function() {
             M.updateTextFields();
+            document.getElementById(\"container3\").style.visibility =\"hidden\";
           });
 
           document.addEventListener('DOMContentLoaded', function() {
