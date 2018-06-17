@@ -20,9 +20,8 @@ $botao="validar";
 <html lang="en">
   <?php head("");?>
 <body>
-<<<<<<< HEAD
-  <?php menu("");?> 
-=======
+ 
+
   <?php menu("");?>
   <div class="row">
     
@@ -30,7 +29,7 @@ $botao="validar";
     <img style="margin-top:-750" class="responsive-img" src="util/img/logo_png.png">
   </div>
   </div>
->>>>>>> 2a4ec35dbedd65e1a3e8483d2b2cedacbfd7658f
+
   <div class="section no-pad-bot" id="index-banner">
     <form mrthod="post">
     <div class="container">

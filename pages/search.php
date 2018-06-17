@@ -31,19 +31,29 @@ session_start();
     </div>
 
   <ul class="collapsible popout">
-    <li>
-      <div class="collapsible-header" onClick="document.getElementById('container3').style.visibility ='visible';">Vereador</div>
-<div class="collapsible-body"><span>
+<?php  
+     $sql ="select distinct(vereador) AS vereador from creditoliderancavereador;"; 
+      
+      $select = mysqli_query($database, $sql);
+      
+      $i = 0;
+      
+      while ($rs=mysqli_fetch_array($select)){
+        
+    
+    echo "<li>
+      <div class=\"collapsible-header\" onClick=\"document.getElementById('container".$i."').style.visibility ='visible';\">".$rs["vereador"]."</div>
+<div class=\"collapsible-body\"><span>
 
-  <div class="row">
-      <div class="input-field col s6">
-      <div id="container3">
+  <div class=\"row\">
+      <div class=\"input-field col s6\">
+      <div id=\"container".$i."\">
 
-        <div class="section">
-      <script type="text/javascript">
+        <div class=\"section\">
+      <script type=\"text/javascript\">
             // Make monochrome colors
             var pieColors = (function () {
-              var colors = ["#d50000","#00c853"],
+              var colors = [\"#d50000\",\"#00c853\"],
                 base = Highcharts.getOptions().colors[0],
                 i;
 
@@ -56,7 +66,7 @@ session_start();
             }());
 
             // Build the chart
-            Highcharts.chart('container3', {
+            Highcharts.chart('container".$i."', {
               chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
@@ -100,24 +110,27 @@ session_start();
     </div>
   </div>
 
-  <div class="input-field col s6">
-  <select name="itens">
-  <option value="0"> Selecione um item: </option>
-    <?php 
+  <div class=\"input-field col s6\">
+  <select name=\"itens\">
+  <option value=\"0\"> Selecione um item: </option>";
+          $i++;
+      
+         
         
-        $sql="select distinct(despesa) AS item from debitovereador;";
+        $sql2="select distinct(despesa) AS item from debitovereador;";
         
-        $select=mysqli_query($database,$sql);
+        $select2=mysqli_query($database,$sql2);
         
-        while($rs=mysqli_fetch_array($select))
+        while($rs2=mysqli_fetch_array($select2))
         {
        
-        echo "<option value=".$rs['item'].">".$rs['item']."</option>"; 
+        echo "<option value=".$rs2['item'].">".$rs2['item']."</option>"; 
 
         
         
         }
-    ?>
+      
+    echo"
   </select>
   <label>Item</label>
   </div>
@@ -125,7 +138,9 @@ session_start();
   </div>
   </span>
 </div>
-    </li>
+    </li>";}
+?>
+     
   </ul>
 
   <?php footer();?>

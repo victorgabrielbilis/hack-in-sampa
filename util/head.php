@@ -30,12 +30,32 @@
             height: 400px;
             margin: 0 auto
           }
-          #container3 {
+          ";
+?>
+<?php
+        require_once("../functions.php");
+  $database = connect_DB();
+     $sql ="select distinct(vereador) AS vereador from creditoliderancavereador;"; 
+      
+      $select = mysqli_query($database, $sql);
+      
+      $i = 3;
+      
+      while ($rs=mysqli_fetch_array($select)){
+        
+    
+        echo"  #container".$i." {
           	min-width: 310px;
             height: 300px;
             max-width: 600px;
             margin: 0 auto
           }
+          ";
+      $i++;
+      }
+          ?>
+<?php
+        echo"
           </style>
 
           <script>
@@ -46,7 +66,7 @@
           });
 
           document.addEventListener('DOMContentLoaded', function() {
-             var elems = document.querySelectorAll('.collapsible');
+             var elems = document.querySelectorAll('.collapsible.popout');
            var instances = M.Collapsible.init(elems, {
              accordion: false
            });
