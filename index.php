@@ -13,18 +13,77 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center black-text">Câmara gasto mensal</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Amostra do gasto mensal da câmara de São Paulo</h5>
-      </div>
 
+      <div class="row">
+      <div class="input-field col s6">
+      <select>
+      <option value="" disabled selected></option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      </select>
+      <label>Estado</label>
+      </div>
+      <div class="input-field col s6">
+      <select>
+      <option value="" disabled selected></option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      </select>
+      <label>Município</label>
+      </div>
+    </div>
+    <div class="row">
+    <div class="input-field col s6">
+    <select>
+    <option value="" disabled selected></option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    </select>
+    <label>Casa</label>
+    </div>
+    <div class="input-field col s6">
+    <select>
+    <option value="" disabled selected></option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    </select>
+    <label>Item</label>
+    </div>
+  </div>
+  <div class="row">
+  <div class="input-field col s6">
+  <select>
+  <option value="" disabled selected></option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+  </select>
+  <label>Fornecedor</label>
+  </div>
+  <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Valor R$</label>
+        </div>
+  </div>
+  <a class="waves-effect waves-light btn">Validar</a>
       <br><br>
 
     </div>
   </div>
 
+  <div class="row">
+    <h5 class="col s12 black-text">Padrão:</h5>
+  </div>
+    <div class="row">
+      <h5 class="col s12 green-text">Aprovado</h5>
+    </div>
 
   <div id="container">
+
     <div class="section">
       <script>
                   Highcharts.chart('container', {
@@ -69,80 +128,6 @@
   </div>
   <br>
   <br>
-  <div class="container">
-    <br><br>
-    <h1 class="header center black-text">Empresas</h1>
-      <h5 class="header center light">Top 10</h5>
-    </div>
-      <div id="container2">
-                            <table id="datatable">
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>Jane</th>
-                          <th>John</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th>Apples</th>
-                          <td>3</td>
-                          <td>4</td>
-                        </tr>
-                        <tr>
-                          <th>Pears</th>
-                          <td>2</td>
-                          <td>0</td>
-                        </tr>
-                        <tr>
-                          <th>Plums</th>
-                          <td>5</td>
-                          <td>11</td>
-                        </tr>
-                        <tr>
-                          <th>Bananas</th>
-                          <td>1</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <th>Oranges</th>
-                          <td>2</td>
-                          <td>4</td>
-                        </tr>
-                      </tbody>
-                    </table>
-        <div class="section">
-          <script>
-
-                  Highcharts.chart('container2', {
-                    data: {
-                      table: 'datatable'
-                    },
-                    chart: {
-                      type: 'column'
-                    },
-                    title: {
-                      text: 'Data extracted from a HTML table in the page'
-                    },
-                    yAxis: {
-                      allowDecimals: false,
-                      title: {
-                        text: 'Units'
-                      }
-                    },
-                    tooltip: {
-                      formatter: function () {
-                        return '<b>' + this.series.name + '</b><br/>' +
-                          this.point.y + ' ' + this.point.name.toLowerCase();
-                      }
-                    }
-                  });
-
-                  </script>
-        </div>
-    <br><br>
-
-  </div>
   <?php footer();?>
   <?php scripts("");?>
   </body>

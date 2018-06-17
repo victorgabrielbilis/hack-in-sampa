@@ -34,11 +34,22 @@
 
           <script>
 
+          $(document).ready(function() {
+            M.updateTextFields();
+          });
+
           document.addEventListener('DOMContentLoaded', function() {
              var elems = document.querySelectorAll('.collapsible');
            var instances = M.Collapsible.init(elems, {
              accordion: false
            });
+           });
+
+           document.addEventListener('DOMContentLoaded', function() {
+             var elems = document.querySelectorAll('select');
+             var instances = M.FormSelect.init(elems, {
+               accordion: false
+             });
            });
 
           $(document).ready(function(){
