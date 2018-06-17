@@ -122,7 +122,8 @@ $botao="validar";
             while(i < data.lenght)
             {
                 elemento = data[i].fornecedor;
-                elements += "<option value=\"\">"+elemento+"</option>";
+                elemento = data[i].fornecedor;
+                elements += "<option value=\""++"\">"+elemento+"</option>";
                 i++;
             }
 
