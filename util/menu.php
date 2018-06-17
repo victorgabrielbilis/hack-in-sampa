@@ -6,9 +6,9 @@
         echo "<nav>
         <nav class=\"indigo darken-4\" role=\"navigation\">
           <ul class=\"left\">
-          <li href=\"#\" data-target=\"slide-out\" class=\"sidenav-trigger\"><i class=\"material-icons\">menu</i></li>
+          
           </ul>
-          <div class=\"nav-wrapper container\"><a id=\"logo-container\" href=\"".$caminho."index.php\" class=\"brand-logo\">Logo</a>
+          <div class=\"nav-wrapper container\"><a id=\"logo-container\" href=\"".$caminho."index.php\" class=\"brand-logo\">Brasilida</a>
 
             <ul class=\"right hide-on-med-and-down\">
 
@@ -25,12 +25,7 @@
         </nav>
 
         </nav>
-        <ul id=\"slide-out\" class=\"sidenav\">
-          <li><a href=\"#!\">Tipo de despesas</a></li>
-          <li><a href=\"#!\">Parlamentar</a></li>
-          <li><a href=\"#!\">Partido</a></li>
-          <li><a href=\"#!\">Fornecedor</a></li>
-        </ul>
+
 
         ";
     }

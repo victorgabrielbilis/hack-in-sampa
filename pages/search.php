@@ -64,7 +64,7 @@ session_start();
                 type: 'pie'
               },
               title: {
-                text: 'Browser market shares at a specific website, 2014'
+                text: 'Débito e crédito do deputado:'
               },
               tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
