@@ -20,7 +20,7 @@ $botao="validar";
 <html lang="en">
   <?php head("");?>
 <body>
-  <?php menu("");?>
+  <?php menu("");?> 
   <div class="section no-pad-bot" id="index-banner">
     <form mrthod="post">
     <div class="container">
