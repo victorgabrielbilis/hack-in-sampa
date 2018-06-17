@@ -32,13 +32,13 @@ session_start();
 
   <ul class="collapsible popout">
 <?php  
-     $sql ="select distinct(vereador) AS vereador from creditoliderancavereador;"; 
+     $sql ="select distinct(vereador) AS vereador from creditoLiderancaVereador;"; 
       
       $select = mysqli_query($database, $sql);
       
       $i = 0;
       
-      while ($rs=mysqli_fetch_array($select)){
+      while ($rs = mysqli_fetch_array($select)){
         
     
     echo "<li>
@@ -56,7 +56,6 @@ session_start();
               var colors = [\"#d50000\",\"#00c853\"],
                 base = Highcharts.getOptions().colors[0],
                 i;
-
               for (i = 0; i < 10; i += 1) {
                 // Start out with a darkened base color (negative brighten), and end
                 // up with a much brighter color
@@ -64,7 +63,6 @@ session_start();
               }
               return colors;
             }());
-
             // Build the chart
             Highcharts.chart('container".$i."', {
               chart: {
@@ -104,13 +102,18 @@ session_start();
                 ]
               }]
             });
-
       </script>
     </div>
     </div>
   </div>
-
   <div class=\"input-field col s6\">
+  <select name=\"itens\">
+  <option value=\"0\"> Selecione um item: </option>";
+          $i++;
+
+
+
+  echo "<div class=\"input-field col s6\">
   <select name=\"itens\">
   <option value=\"0\"> Selecione um item: </option>";
           $i++;
@@ -124,17 +127,14 @@ session_start();
         while($rs2=mysqli_fetch_array($select2))
         {
        
-        echo "<option value=".$rs2['item'].">".$rs2['item']."</option>"; 
-
-        
+        echo "<option value=\"".$rs2['item']."\">".$rs2['item']."</option>"; 
         
         }
       
-    echo"
+    echo "
   </select>
   <label>Item</label>
   </div>
-
   </div>
   </span>
 </div>

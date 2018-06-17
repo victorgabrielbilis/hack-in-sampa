@@ -6,7 +6,7 @@
   require_once("util/menu.php");
 
     require_once("functions.php");
-    $database = @connect_DB();
+    $database = connect_DB();
 
 session_start();
 
@@ -20,7 +20,10 @@ $botao="validar";
 <html lang="en">
   <?php head("");?>
 <body>
- 
+  <script>
+    var fornecedor_selecionado = "";
+    var chart1 = "";
+  </script>
 
   <?php menu("");?>
   <div class="row">
@@ -87,8 +90,12 @@ $botao="validar";
     </div>
   </div>
   <div class="row">
-  <div class="input-field col s6">
-    <div id="select_fornecedor">
+  <div class="input-field col s6" id="adicionar_elemento">
+        
+    <select id="select_fornecedor" class="materialSelect">
+     </select>
+     
+   <label>Fornecedor</label>
    <!--
     <select id="fornecedor">
     <option value="" disabled selected></option>
@@ -97,15 +104,17 @@ $botao="validar";
     <option value="3">Option 3</option>
     </select>
     -->
-    </div>
-  <label>Fornecedor</label>
+    
+    
+    
+  
   </div>
   <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Valor R$</label>
+          <input id="valor" type="text" class="validate">
+          <label for="valor">Valor R$</label>
         </div>
   </div>
-    <a class="waves-effect waves-light btn">Validar</a>
+    <a class="waves-effect waves-light btn" onclick="validar();">Validar</a>
       <br><br>
 
     </div>
@@ -113,7 +122,56 @@ $botao="validar";
   </div>
   
   <script>
+    function validar()
+    {
+        //var item = document.getElementById('item').value;
+        
+        var itens = document.getElementById('itens');
+        var itens_value = itens.options[itens.selectedIndex].text;
+        
+        /*
+        var fornecedor = document.getElementById('fornecedor').value;
+        var fornecedor_value = fornecedor.options[fornecedor.selectedIndex].text;
+        */
 
+        var valor = document.getElementById('valor').value;
+        $.get("http://localhost/hack-in-sampa/api/v1/info/getFornecedorAverage.php?despesa="+itens_value+"&fornecedor="+fornecedor_selecionado, function(data, status){
+            
+            console.log(data);
+            data = JSON.parse(data);
+            var max = data[0].media * 1.10;
+            if(parseFloat(valor) > max)
+            {
+              document.getElementById('res_label').innerHTML = "Reprovado";
+              document.getElementById('res_label').style.color = "#ff3d00";
+            }
+            else
+            {
+              document.getElementById('res_label').innerHTML = "Aprovado";
+              document.getElementById('res_label').style.color = "#00c853";
+            }
+            
+            
+            $.get("http://localhost/hack-in-sampa/api/v1/despesas/getHistoricoPrecos.php?despesa="+itens_value+"&fornecedor="+fornecedor_selecionado, function(data, status){
+                      console.log(data);
+                      data = JSON.parse(data);
+                      //var max = data[0].media * 1.10;
+                      var vetor = new Array();
+                      var i = 0;
+                      
+                      while(i < data.length)
+                      {
+                        vetor[i] = parseFloat(data[i].total);
+                        i++;
+                      }
+                    
+                      chart1.series[0].setData(vetor);
+                });
+               
+
+
+      });
+    }
     function changed()
     {
       //alert();
@@ -127,19 +185,24 @@ $botao="validar";
 
             var html = "";
             var i = 0;
-            
-            var elements = "<select id=\"fornecedor\">";
+            var elements = "";
+            //var elements = "<select name=\"fornecedor\" id=\"fornecedor\"><br>";
             while(i < data.length)
             {
                 elemento = data[i].fornecedor;
-                elements += "<option value=\""+elemento+"\">"+elemento+"</option>";
+                elements += "<option value=\""+elemento+"\">"+elemento+"</option><br>";
                 i++;
             }
-            elements += "</select>";
-            console.log(elements);
+            //elements += "</select><br>";
             
-            document.getElementById('select_fornecedor').innerHTML = elements ;
+            fornecedor_selecionado = data[0].fornecedor;
+            
+            console.log(elements);
 
+            //document.getElementById('select_fornecedor').innerHTML = elements;
+            document.getElementById('select_fornecedor').innerHTML = elements;
+            //document.getElementById('select_fornecedor').appendChild(select);
+            
             
       });
       /*
@@ -173,29 +236,29 @@ var $newOpt = $("<option>").attr("value",1).text("fdsafdsa")
     <h5 class="col s12 black-text">Padrão:</h5>
   </div>
     <div class="row">
-      <h5 class="col s12 green-text">Aprovado</h5>
+      <h5 id="res_label" class="col s12 ">Aprovado</h5>
     </div>
 
   <div id="container">
 
     <div class="section">
       <script>
-                  Highcharts.chart('container', {
+                  chart1 = Highcharts.chart('container', {
                     chart: {
                       type: 'line'
                     },
                     title: {
-                      text: 'Monthly Average Temperature'
+                      text: 'Historico de médias'
                     },
                     subtitle: {
-                      text: 'Source: WorldClimate.com'
+                      text: ''
                     },
                     xAxis: {
                       categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
                     },
                     yAxis: {
                       title: {
-                        text: 'Temperature (°C)'
+                        text: 'Dinheiro R$'
                       }
                     },
                     plotOptions: {
@@ -207,10 +270,9 @@ var $newOpt = $("<option>").attr("value",1).text("fdsafdsa")
                       }
                     },
                     series: [{
-                      name: 'Tokyo',
-                      data: [
+                      name: 'Serie 1'
                       <?php
-
+                          /*
                           $site = file_get_contents("http://localhost/hack-in-sampa/api/v1/despesas/getAllCostsMonths.php");
                           $json = json_decode($site, true);
                           $i = 0;
@@ -223,6 +285,7 @@ var $newOpt = $("<option>").attr("value",1).text("fdsafdsa")
                           
                           $contents = substr($contents, 0 , strlen($contents)-1);
                           echo $contents."]";
+                          */
                       ?>
 
                       //data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
