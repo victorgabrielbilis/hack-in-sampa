@@ -20,6 +20,8 @@ $botao="validar";
 <html lang="en">
   <?php head("");?>
 <body>
+ 
+
   <?php menu("");?>
   <div class="row">
     
