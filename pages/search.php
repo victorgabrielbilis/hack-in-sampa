@@ -3,6 +3,12 @@
   require_once("../util/footer.php");
   require_once("../util/scripts.php");
   require_once("../util/menu.php");
+
+  require_once("../functions.php");
+  $database = connect_DB();
+
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -95,11 +101,23 @@
   </div>
 
   <div class="input-field col s6">
-  <select>
-  <option value="" disabled selected></option>
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  <option value="3">Option 3</option>
+  <select name="itens">
+  <option value="0"> Selecione um item: </option>
+    <?php 
+        
+        $sql="select distinct(despesa) AS item from debitovereador;";
+        
+        $select=mysqli_query($database,$sql);
+        
+        while($rs=mysqli_fetch_array($select))
+        {
+       
+        echo "<option value=".$rs['item'].">".$rs['item']."</option>"; 
+
+        
+        
+        }
+    ?>
   </select>
   <label>Item</label>
   </div>

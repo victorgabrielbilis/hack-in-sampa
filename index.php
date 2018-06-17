@@ -86,14 +86,16 @@ $botao="validar";
   </div>
   <div class="row">
   <div class="input-field col s6">
-  <div id="select_fornecedor">
+    <div id="select_fornecedor">
+   <!--
     <select id="fornecedor">
     <option value="" disabled selected></option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
     </select>
-  </div>
+    -->
+    </div>
   <label>Fornecedor</label>
   </div>
   <div class="input-field col s6">
@@ -124,14 +126,17 @@ $botao="validar";
             var html = "";
             var i = 0;
             
-            var elements = "";
-            while(i < data.lenght)
+            var elements = "<select id=\"fornecedor\">";
+            while(i < data.length)
             {
                 elemento = data[i].fornecedor;
-                elemento = data[i].fornecedor;
-                elements += "<option value=\""++"\">"+elemento+"</option>";
+                elements += "<option value=\""+elemento+"\">"+elemento+"</option>";
                 i++;
             }
+            elements += "</select>";
+            console.log(elements);
+            
+            document.getElementById('select_fornecedor').innerHTML = elements ;
 
             
       });
