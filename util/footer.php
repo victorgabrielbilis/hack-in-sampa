@@ -2,7 +2,7 @@
 
     function footer()
     {
-        echo "<footer class=\"page-footer orange\">
+        echo "<!--<footer class=\"page-footer orange\">
           <div class=\"container\">
             <div class=\"row\">
               <div class=\"col l6 s12\">
@@ -36,7 +36,7 @@
             Made by <a class=\"orange-text text-lighten-3\" href=\"http://materializecss.com\">Materialize</a>
             </div>
           </div>
-        </footer>";
+        </footer>-->";
     }
 
 ?>
