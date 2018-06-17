@@ -109,17 +109,8 @@ session_start();
   <div class=\"input-field col s6\">
   <select name=\"itens\">
   <option value=\"0\"> Selecione um item: </option>";
-          $i++;
-
-
-
-  echo "<div class=\"input-field col s6\">
-  <select name=\"itens\">
-  <option value=\"0\"> Selecione um item: </option>";
-          $i++;
+          
       
-         
-        
         $sql2="select distinct(despesa) AS item from debitovereador;";
         
         $select2=mysqli_query($database,$sql2);
@@ -127,7 +118,7 @@ session_start();
         while($rs2=mysqli_fetch_array($select2))
         {
        
-        echo "<option value=\"".$rs2['item']."\">".$rs2['item']."</option>"; 
+        echo "<option value=\"".$rs2['item']."\" >".$rs2['item']."</option>"; 
         
         }
       
@@ -138,7 +129,10 @@ session_start();
   </div>
   </span>
 </div>
-    </li>";}
+    </li>
+    ";
+    
+    $i++;}
 ?>
      
   </ul>
