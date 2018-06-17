@@ -6,7 +6,7 @@
   require_once("util/menu.php");
 
     require_once("functions.php");
-    $database = connect_DB();
+    $database = @connect_DB();
 
 session_start();
 
@@ -22,9 +22,9 @@ $botao="validar";
 <body>
   <?php menu("");?>
   <div class="row">
-    <img width="100%" src="util/img/saopaulo3.jpg">
+    
     <div class="row center">
-    <img style="margin-top:-450" class="responsive-img" src="util/img/logo_png.png">
+    <img style="margin-top:-750" class="responsive-img" src="util/img/logo_png.png">
   </div>
   </div>
   <div class="section no-pad-bot" id="index-banner">
